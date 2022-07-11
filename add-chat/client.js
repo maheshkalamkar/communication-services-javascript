@@ -1,14 +1,14 @@
-// <Create a chat client>
-import { ChatClient, ChatThreadClient } from '@azure/communication-chat';
+import { ChatClient } from '@azure/communication-chat';
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
-let endpointUrl = 'https://<RESOURCE_NAME>.communication.azure.com';
-let userAccessToken = '<USER_ACCESS_TOKEN>';
+// Your unique Azure Communication service endpoint
+let endpointUrl = 'https://chatandmessagingpoc.communication.azure.com';
+// The user access token generated as part of the pre-requisites
+let userAccessToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjEwNiIsIng1dCI6Im9QMWFxQnlfR3hZU3pSaXhuQ25zdE5PU2p2cyIsInR5cCI6IkpXVCJ9.eyJza3lwZWlkIjoiYWNzOjA4MTk3MDQ4LTNiNGEtNDUzYi1hM2UzLTcxZTJmYWY1MThhMl8wMDAwMDAxMi00YTQ2LWU3ZjktNTRiNy1hNDNhMGQwMDkxNDQiLCJzY3AiOjE3OTIsImNzaSI6IjE2NTY0MjExNzIiLCJleHAiOjE2NTY1MDc1NzIsImFjc1Njb3BlIjoiY2hhdCx2b2lwIiwicmVzb3VyY2VJZCI6IjA4MTk3MDQ4LTNiNGEtNDUzYi1hM2UzLTcxZTJmYWY1MThhMiIsImlhdCI6MTY1NjQyMTE3Mn0.QKRnrfIQNeyFKIVOdmnSxADy38sF5XxYuddY1ti65NzcDeF_6fH7_ZsG0FdPRb5q4JbF2j8EZhEIJP2diK0Ri2zVpBV5bSbYEFnBl5Uc6abIFEsipimOpC2iP58yYD3-Vg9vqF_Hyqg81wHI6M2JqK0LWsL4OM9IQhbkiN5XnUqTdJRG1x9cpPyAGeo6uFf_fjKK2v-gg86gAU3gSg9kPX20DS_v2ws1Bm21YXNPo2RcqvwL-OBG6-BJRh8lK4etzjG3TI2bXSvUo61J-v0mvfRyTZJv8p-oFe87wdNdfUyAMe-c_bKleCK3WmB7hMYY0cmDIx3Rg-Nl64c_nSG0Bw';
 
 let chatClient = new ChatClient(endpointUrl, new AzureCommunicationTokenCredential(userAccessToken));
 console.log('Azure Communication Chat client created!');
 
-// <Start a chat thread>
 async function createChatThread() {
     const createChatThreadRequest = {
         topic: "Calling Application"
@@ -16,8 +16,8 @@ async function createChatThread() {
     const createChatThreadOptions = {
         participants: [
             {
-                id: { communicationUserId: '<USER_ID>' },
-                displayName: '<USER_DISPLAY_NAME>'
+                id: { communicationUserId: 'maheshkalamkar@gmail.com' },
+                displayName: 'Mahesh'
             }
         ]
     };
@@ -51,7 +51,7 @@ createChatThread().then(async threadId => {
     // <Send a message to a chat thread>
     const sendMessageRequest =
     {
-        content: 'Hello Geeta! Can you share the deck for the conference?'
+        content: 'Hello Kalyani! Can you share the deck for the conference?'
     };
     let sendMessageOptions =
     {
@@ -73,8 +73,8 @@ createChatThread().then(async threadId => {
     {
         participants: [
             {
-                id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
-                displayName: 'Jane'
+                id: { communicationUserId: 'kalyani@maheshkalamkar@gmail' },
+                displayName: 'Kalyani'
             }
         ]
     };
@@ -93,4 +93,3 @@ createChatThread().then(async threadId => {
         console.log(`participants in thread available:${user.id.communicationUserId}`);
     }
 });
-

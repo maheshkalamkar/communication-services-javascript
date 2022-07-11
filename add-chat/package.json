@@ -1,7 +1,6 @@
 {
   "name": "chat-quickstart",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-chat": "^1.0.0",
+    "@azure/communication-chat": "^1.2.0",
     "@azure/communication-common": "^1.1.0",
     "@azure/communication-identity": "^1.0.0",
     "@azure/communication-signaling": "^1.0.0-beta.7"
   },
   "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.6.2",
     "webpack": "^5.32.0",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
-  }
+    "webpack-dev-server": "^4.9.3"
+  },
+  "description": ""
 }
